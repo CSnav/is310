@@ -30,4 +30,3 @@ for i in range(len(lines)):
     finalpath = os.path.join("/Users/arnav/Git/is310-1/Spring Break Assignment/output", filename)
     with open(finalpath, "w") as f:
         f.write(str(soup))
-
