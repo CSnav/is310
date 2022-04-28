@@ -22,12 +22,11 @@ def filter(doc):
         tmp = tmp.replace('  ', ' ') 
     return tmp
 
-if __name__ == '__main__':
-    url = 'https://humanist.kdl.kcl.ac.uk/Archives/Converted_Text/' # base url
-    scripts = []
-    vols = get_volumes(url)
-    for vol in vols:
-        scripts.append({'url': url + vol, 'year': vol.split('.')[1], 'text': filter(scrape_volume(url + vol))})
-    humanist_vols = pd.DataFrame(scripts)
-    humanist_vols.to_csv('web_scraped_humanist_listserv.csv')
+url = 'https://humanist.kdl.kcl.ac.uk/Archives/Converted_Text/' # base url
+scripts = []
+vols = get_volumes(url)
+for vol in vols:
+    scripts.append({'url': url + vol, 'year': vol.split('.')[1], 'text': filter(scrape_volume(url + vol))})
+humanist_vols = pd.DataFrame(scripts)
+humanist_vols.to_csv('web_scraped_humanist_listserv.csv')
 

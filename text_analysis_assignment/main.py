@@ -30,13 +30,12 @@ def plot(df, word):
     for i, row in df.iterrows():
         dist = top_1_year(df, row.year, verbose=True)
         if word not in dist:
-            raise ValueError('word not found')  # raise error if word not in corpus
+            raise ValueError('word not found')  # raise error if word not in text
         x.append(row.year)
         y.append(dist[word])
     plt.plot(x, y)
     plt.show()
 
-if __name__ == '__main__':
-    df = pd.read_csv('../notebook_assignment/web_scraped_humanist_listserv.csv')
-    print(top_1_year(df, '1987-1988'))
-    plot(df, 'I')
+df = pd.read_csv('../notebook_assignment/web_scraped_humanist_listserv.csv')
+print(top_1_year(df, '1987-1988'))
+plot(df, 'I')
